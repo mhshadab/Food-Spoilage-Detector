@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
@@ -6,8 +7,11 @@ from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 
+
+
 # Define the path to the images
-data_dir = r'D:\hackathon\testImage'  # Using a raw string
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(current_dir, 'trainingImages')  # Path to the trainingImages folder in the current directory
 
 # Set up data augmentation parameters
 train_datagen = ImageDataGenerator(
